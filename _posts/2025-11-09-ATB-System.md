@@ -33,11 +33,12 @@ Action Time Battle System developed using Blueprints in C++. Started as a group 
 - TBD
 
 ### Links
-- Repo: [source](#)
+- Repo: <a href="https://github.com/AbderrahimJami/UE5-Action-Time-Battle-System" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>
+GitHub</a>
 - Demo / Video: [play/demo](#)
 
 ### Assets
-- Screenshots / GIFs: /assets/images/your-project-screenshot.png
+- Screenshots / GIFs: TBD
 
 
 ---

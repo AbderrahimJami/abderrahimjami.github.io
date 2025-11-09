@@ -31,7 +31,7 @@ Unreal Engine C++ Project started as part of the LimitBreak Mentorship with Seni
 ### Technical highlights
 - Engine / Framework: Unreal Engine
 - Languages: C++, Blueprints
-- Systems: State Trees, Perception System, EQS, Gameplay Framework, UMG.
+- Systems: State Trees, Animation System, Perception System, EQS, Gameplay Framework, UMG.
 
 ### Challenges & solutions
 - TBD

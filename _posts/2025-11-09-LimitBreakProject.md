@@ -5,7 +5,7 @@ categories: [Projects, CPlusPlus, Unreal-Engine]
 tags: [portfolio, unreal-engine, cpp, blueprints, gameplay]
 description: UE5 horror prototype  inspired by Resident Evil 7.
 image:
-  path: assets/images/LimitBreak/LimitBreakPlaceholderImage.jpg
+  path: assets/images/LimitBreak/LB_TwitterBanner.webp
   alt: Project poster
 ---
 

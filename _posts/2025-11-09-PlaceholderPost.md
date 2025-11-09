@@ -23,7 +23,7 @@ This is my first post, I've never really used this before, but I'm confident I'l
 This is me practicing a simple checklist
 - [ ] First Checklist item
 - [ ] second checklist with **bold formatting**
-- [ ] Third checklist item with [***Multiplayer.it***](http://multiplayer.it/)
+- [ ] Third checklist item with [***Multiplayer.it***](https://multiplayer.it/)
 - [ ] Fourth checklist item with `inline code` 
 
 ---

@@ -1,8 +1,8 @@
 ---
 title: Final Year (4th) Honours project
 date: 2025-11-09 14:09:52 +/-0000
-categories: [Projects, C++]
-tags: [python, deep-machine-learning, putty, c++]     # TAG names should always be lowercase
+categories: [Projects, CPlusPlus]
+tags: [python, deep-machine-learning, putty, cpp]     # TAG names should always be lowercase
 description: Data pre-processing improvements for a GAN-based Minecraft map generator.
 image:
   path: /MapcrafterCropped.png

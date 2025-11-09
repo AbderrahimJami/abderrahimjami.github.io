@@ -33,8 +33,8 @@ Action Time Battle System developed using Blueprints in C++. Started as a group 
 - TBD
 
 ### Links
-- Repo: [source]()
-- Demo / Video: [play/demo]()
+- Repo: [source](#)
+- Demo / Video: [play/demo](#)
 
 ### Assets
 - Screenshots / GIFs: /assets/images/your-project-screenshot.png

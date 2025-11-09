@@ -36,9 +36,9 @@ Unreal Engine C++ Project started as part of the LimitBreak Mentorship with Seni
 ### Challenges & solutions
 - TBD
 
-### Links
-- Repo: [source]()
-- Demo / Video: [play/demo]()
+-### Links
+- Repo: [source](#)
+- Demo / Video: [play/demo](#)
 - Build notes: add any quick run instructions or required build flags
 
 ### Assets

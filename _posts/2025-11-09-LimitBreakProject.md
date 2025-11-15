@@ -33,21 +33,20 @@ Unreal Engine C++ Project started as part of the LimitBreak Mentorship with Seni
 - Languages: C++, Blueprints
 - Systems: State Trees, Animation System, Perception System, EQS, Gameplay Framework, UMG.
 
-### Challenges & solutions
-- TBD
 
--### Links
-- Repo: [source](#)
-- Demo / Video: [play/demo](#)
+### Links
+- Repo: <a href="https://github.com/AbderrahimJami/LimitBreakProject" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i>
+GitHub</a>
+- Demo: <a href="https://abderrahimjami.itch.io/thesteroidolympics" target="_blank" rel="noopener noreferrer"><i class="fab fa-itch-io"></i>
+Itch.io</a>
+- Video: [play/demo](#)
+
 - Build notes: add any quick run instructions or required build flags
 
-### Assets
-- Screenshots / GIFs: /assets/images/your-project-screenshot.png
 
 
 ---
 
 ## Demo
 
-{% include embed/youtube.html id='fG5ggTVltS8' %}
 

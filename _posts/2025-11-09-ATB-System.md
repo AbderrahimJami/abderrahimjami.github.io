@@ -11,6 +11,14 @@ mermaid: true
 
 ---
 
+
+
+## Demo
+
+{% include embed/youtube.html id='jujk4SB39s8' %}
+
+
+
 ### Overview
 Action Time Battle System developed using Blueprints. Started as a group project contribution, the task developed as a standalone system that can be easily integrated inside a pre-existing project. Using **State Trees** for combat flow logic and **UMG Widgets** for player interaction this system takes inspiration from titles such as [***Final Fantasy VII Rebirth***](https://www.youtube.com/watch?v=GL33pUIwZ5U). 
 
@@ -248,7 +256,3 @@ Itch.io</a>
 
 
 ---
-
-## Demo
-
-<!-- {% include embed/youtube.html id='' %} -->

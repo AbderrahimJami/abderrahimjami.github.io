@@ -1,0 +1,19 @@
+{%- comment -%}
+  Join the non-empty `jam` front matter fields of a post with " · ".
+
+  Arguments:
+    jam    - required, the post's `jam` hash
+    fields - required, comma-separated field names, e.g. 'name,duration'
+{%- endcomment -%}
+
+{%- assign _parts = '' | split: '' -%}
+{%- assign _fields = include.fields | split: ',' -%}
+
+{%- for _field in _fields -%}
+  {%- assign _value = include.jam[_field] | strip -%}
+  {%- if _value != '' -%}
+    {%- assign _parts = _parts | push: _value -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{{- _parts | join: ' · ' | escape -}}

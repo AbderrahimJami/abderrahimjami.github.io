@@ -1,0 +1,420 @@
+---
+---
+
+/* Mirrors jekyll-theme-chirpy 7.6.0's assets/css/jekyll-theme-chirpy.scss; keep the lines above
+   "append your custom style below" in sync with the installed theme version. */
+
+@use 'abstracts/variables' with (
+  $theme: '{{ site.theme_mode }}'
+);
+
+/* prettier-ignore */
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+/* ---------- Game Jams: shared ---------- */
+
+.jam-btn {
+  position: relative;
+  z-index: 2; /* above the card's stretched link */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--btn-border-color);
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 0.9rem;
+  line-height: 1.1rem;
+  white-space: nowrap;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: var(--tag-hover);
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  &.jam-btn-primary {
+    border-color: transparent;
+    background-color: var(--link-color);
+    color: var(--main-bg);
+
+    &:hover {
+      background-color: var(--link-color);
+      color: var(--main-bg);
+      opacity: 0.85;
+    }
+  }
+
+  &.jam-btn-sm {
+    flex: none;
+    gap: 0.4rem;
+    padding: 0.3rem 0.75rem;
+    color: var(--link-color);
+    font-size: 0.85rem;
+    line-height: 1.05rem;
+
+    &:hover {
+      color: var(--link-color);
+    }
+  }
+}
+
+/* Chirpy's refactor-content adds a looping .shimmer placeholder to every image, and its
+   JS only clears it for images inside <article> on home/post/page layouts. That misses
+   the strip cards and the whole Game Jams tab, so drop the animation there. */
+.jam-strip,
+.jam-featured,
+.jam-row {
+  .shimmer::before {
+    display: none;
+  }
+}
+
+%jam-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Game Jams: home page strip ---------- */
+
+.jam-strip {
+  margin-bottom: 1rem;
+
+  .jam-strip-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+
+    h2 {
+      margin: 0;
+      font-family: Lato, 'Microsoft Yahei', sans-serif;
+      font-weight: 400;
+      font-size: 1.25rem;
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--heading-color);
+        transition: color 0.2s;
+
+        i {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    a:hover {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+  }
+
+  .jam-strip-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+    transition: color 0.2s;
+  }
+
+  .jam-strip-row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% - 2rem) / 3);
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 4px 4px 1rem;
+    margin: 0 -4px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--btn-border-color) transparent;
+
+    &::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--btn-border-color);
+      border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    @media all and (max-width: 767px) {
+      grid-auto-columns: calc((100% - 1rem) / 2);
+    }
+
+    @media all and (max-width: 575px) {
+      grid-auto-columns: 80%;
+    }
+  }
+
+  .jam-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    scroll-snap-align: start;
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+    }
+
+    /* Chirpy wraps the cover in .preview-img (40:21) on the home page */
+    .preview-img {
+      border-radius: 0;
+    }
+
+    img {
+      width: 100%;
+      aspect-ratio: 40 / 21;
+      object-fit: cover;
+    }
+  }
+
+  .jam-card-body {
+    padding: 0.75rem 1rem 0.85rem;
+    line-height: 1.5;
+  }
+
+  .jam-card-title {
+    @extend %jam-ellipsis;
+
+    font-family: Lato, 'Microsoft Yahei', sans-serif;
+    font-size: 1rem;
+    line-height: 1.35;
+    color: var(--heading-color);
+  }
+
+  .jam-card-sub {
+    @extend %jam-ellipsis;
+
+    margin-top: 0.15rem;
+    font-size: 0.8rem;
+    color: var(--text-muted-color);
+  }
+}
+
+/* ---------- Game Jams: tab page ---------- */
+
+.jams-page {
+  .jams-intro {
+    max-width: 44rem;
+    margin-bottom: 2rem;
+
+    p {
+      color: var(--text-muted-color);
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+  }
+
+  .stretched-link::after {
+    z-index: 1;
+  }
+
+  .jams-heading {
+    margin: 2.5rem 0 0.25rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--label-color);
+  }
+}
+
+.jam-featured {
+  position: relative;
+  overflow: hidden;
+
+  .jam-cover {
+    a,
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    img {
+      aspect-ratio: 40 / 16;
+      object-fit: cover;
+    }
+  }
+
+  .jam-featured-body {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.25rem 2rem;
+    padding: 1.5rem 1.75rem;
+    line-height: 1.5;
+
+    @media all and (max-width: 575px) {
+      padding: 1.25rem 1rem;
+    }
+  }
+
+  .jam-featured-text {
+    flex: 1 1 320px;
+    min-width: 0;
+  }
+
+  .jam-eyebrow {
+    margin-bottom: 0.35rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--label-color);
+  }
+
+  .jam-featured-title {
+    margin: 0 0 0.5rem;
+    font-family: Lato, 'Microsoft Yahei', sans-serif;
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.2;
+
+    a {
+      color: var(--heading-color);
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .jam-desc {
+    margin: 0 0 0.85rem;
+    color: var(--text-muted-color);
+  }
+
+  .jam-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .jam-chip {
+    font-size: 0.85rem;
+    line-height: 1.05rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--btn-border-color);
+    color: var(--text-muted-color);
+  }
+
+  .jam-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    flex: none;
+  }
+}
+
+.jam-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.jam-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid var(--main-border-color);
+  border-radius: 10px;
+
+  /* same hover tint as Chirpy's .post-preview */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background-color: var(--card-hover-bg);
+    opacity: 0;
+    transition: opacity 0.35s ease-in-out;
+    pointer-events: none;
+  }
+
+  &:hover::before {
+    opacity: 0.3;
+  }
+
+  @media all and (max-width: 575px) {
+    gap: 0.85rem;
+  }
+
+  .jam-thumb {
+    flex: none;
+    width: 9rem;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--img-bg);
+
+    @media all and (max-width: 575px) {
+      width: 6rem;
+    }
+
+    a,
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    img {
+      aspect-ratio: 40 / 21;
+      object-fit: cover;
+    }
+  }
+
+  .jam-row-text {
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
+  }
+
+  .jam-row-title {
+    margin: 0;
+    font-family: Lato, 'Microsoft Yahei', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+    line-height: 1.5;
+
+    a {
+      color: var(--heading-color);
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .jam-row-desc {
+    @extend %jam-ellipsis;
+
+    font-size: 0.9rem;
+    color: var(--text-muted-color);
+  }
+
+  .jam-row-meta {
+    @extend %jam-ellipsis;
+
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+    color: var(--text-muted-color);
+  }
+}

@@ -1,0 +1,34 @@
+{%- comment -%}
+  Horizontally scrolling row of game jam cards shown at the top of the home page.
+  Lists every post whose first category is "Game-Jams", newest first.
+{%- endcomment -%}
+
+{% assign jams = site.categories['Game-Jams'] %}
+
+{% if jams.size > 0 %}
+  {% assign jams_url = '/gamejams/' | relative_url %}
+
+  <section class="jam-strip" aria-labelledby="jam-strip-title">
+    <div class="jam-strip-header">
+      <h2 id="jam-strip-title">
+        <a href="{{ jams_url }}"><i class="fab fa-itch-io fa-fw"></i>Game Jams</a>
+      </h2>
+      <a class="jam-strip-all" href="{{ jams_url }}">View all {{ jams.size }}<i class="fas fa-angle-right"></i></a>
+    </div>
+
+    <div class="jam-strip-row">
+      {% for post in jams %}
+        {% assign src = post.image.path | default: post.image | relative_url %}
+        {% assign alt = post.image.alt | default: post.title | xml_escape %}
+
+        <a class="jam-card post-preview" href="{{ post.url | relative_url }}">
+          <img src="{{ src }}" alt="{{ alt }}">
+          <div class="jam-card-body">
+            <div class="jam-card-title">{{ post.title }}</div>
+            <div class="jam-card-sub">{% include gamejam-meta.html jam=post.jam fields='name,duration' %}</div>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

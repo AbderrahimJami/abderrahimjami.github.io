@@ -1,0 +1,38 @@
+{%- comment -%}
+  One row in the "All entries" list on the Game Jams tab.
+
+  Arguments:
+    post - required, the jam post
+
+  See gamejam-featured.html for why the thumbnail <img> sits directly inside its <a>.
+{%- endcomment -%}
+
+{% assign post = include.post %}
+{% assign jam = post.jam %}
+{% assign url = post.url | relative_url %}
+{% assign src = post.image.path | default: post.image | relative_url %}
+{% assign alt = post.image.alt | default: post.title | xml_escape %}
+
+<div class="jam-row">
+  <div class="jam-thumb">
+    <a href="{{ url }}" tabindex="-1" aria-hidden="true"><img src="{{ src }}" alt="{{ alt }}"></a>
+  </div>
+
+  <div class="jam-row-text">
+    <h3 class="jam-row-title"><a class="stretched-link" href="{{ url }}">{{ post.title }}</a></h3>
+    <div class="jam-row-desc">{{ post.description }}</div>
+    <div class="jam-row-meta">{% include gamejam-meta.html jam=jam fields='name,duration,team,engine' %}</div>
+  </div>
+
+  {% if jam.itch %}
+    <a
+      class="jam-btn jam-btn-sm"
+      href="{{ jam.itch }}"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Play {{ post.title | xml_escape }} on itch.io"
+    >
+      <i class="fab fa-itch-io"></i>Play
+    </a>
+  {% endif %}
+</div>

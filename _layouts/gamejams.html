@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+{%- comment -%}
+  Layout for the Game Jams tab. The tab's Markdown body is the intro text.
+  The newest jam is featured and the rest are listed below it.
+{%- endcomment -%}
+
+{% assign jams = site.categories['Game-Jams'] %}
+
+<article class="px-1 jams-page">
+  <h1 class="dynamic-title">{{ page.title }}</h1>
+
+  <div class="content jams-intro">
+    {{ content }}
+  </div>
+
+  {% if jams.size > 0 %}
+    {% include gamejam-featured.html post=jams.first %}
+
+    {% if jams.size > 1 %}
+      <h2 class="jams-heading">All entries</h2>
+      <div class="jam-list">
+        {% for post in jams offset: 1 %}
+          {% include gamejam-row.html post=post %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endif %}
+</article>

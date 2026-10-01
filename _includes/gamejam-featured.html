@@ -1,0 +1,54 @@
+{%- comment -%}
+  Large card for the newest game jam on the Game Jams tab.
+
+  Arguments:
+    post - required, the jam post to feature
+
+  The title link is stretched over the whole card, and the buttons sit above it.
+  The cover <img> must be the only child of its <a> (no whitespace): Chirpy's
+  refactor-content.html then reuses that link instead of wrapping the image in
+  a lightbox popup link.
+{%- endcomment -%}
+
+{% assign post = include.post %}
+{% assign jam = post.jam %}
+{% assign url = post.url | relative_url %}
+{% assign src = post.image.path | default: post.image | relative_url %}
+{% assign alt = post.image.alt | default: post.title | xml_escape %}
+
+<article class="jam-featured post-preview">
+  <div class="jam-cover">
+    <a href="{{ url }}" tabindex="-1" aria-hidden="true"><img src="{{ src }}" alt="{{ alt }}"></a>
+  </div>
+
+  <div class="jam-featured-body">
+    <div class="jam-featured-text">
+      {% if jam.name and jam.name != '' %}
+        <div class="jam-eyebrow">Latest jam · {{ jam.name }}</div>
+      {% endif %}
+
+      <h2 class="jam-featured-title">
+        <a class="stretched-link" href="{{ url }}">{{ post.title }}</a>
+      </h2>
+
+      <p class="jam-desc">{{ post.description }}</p>
+
+      <div class="jam-chips">
+        {% if jam.theme and jam.theme != '' %}<span class="jam-chip">Theme: {{ jam.theme }}</span>{% endif %}
+        {% if jam.duration and jam.duration != '' %}<span class="jam-chip">{{ jam.duration }}</span>{% endif %}
+        {% if jam.team and jam.team != '' %}<span class="jam-chip">{{ jam.team }}</span>{% endif %}
+        {% if jam.role and jam.role != '' %}<span class="jam-chip">{{ jam.role }}</span>{% endif %}
+        {% if jam.engine and jam.engine != '' %}<span class="jam-chip">{{ jam.engine }}</span>{% endif %}
+      </div>
+    </div>
+
+    <div class="jam-actions">
+      <a class="jam-btn" href="{{ url }}">Read write-up</a>
+      {% if jam.itch %}
+        <a class="jam-btn jam-btn-primary" href="{{ jam.itch }}" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-itch-io"></i>Play on itch.io
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</article>

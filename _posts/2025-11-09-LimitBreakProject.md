@@ -41,7 +41,6 @@ GitHub</a>
 Itch.io</a>
 - Video: [play/demo](#)
 
-- Build notes: add any quick run instructions or required build flags
 
 
 

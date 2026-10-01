@@ -8,9 +8,9 @@
 {% if jams.size > 0 %}
   {% assign jams_url = '/gamejams/' | relative_url %}
 
-  <section class="jam-strip" aria-labelledby="jam-strip-title">
-    <div class="jam-strip-header">
-      <h2 id="jam-strip-title">
+  <section class="jam-strip" aria-label="Game Jams">
+    <div class="home-section-header">
+      <h2>
         <a href="{{ jams_url }}"><i class="fab fa-itch-io fa-fw"></i>Game Jams</a>
       </h2>
       <a class="jam-strip-all" href="{{ jams_url }}">View all {{ jams.size }}<i class="fas fa-angle-right"></i></a>

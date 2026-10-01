@@ -84,42 +84,54 @@
   text-overflow: ellipsis;
 }
 
-/* ---------- Game Jams: home page strip ---------- */
+/* ---------- Home page: section headers ---------- */
 
-.jam-strip {
-  margin-bottom: 1rem;
+.home-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
 
-  .jam-strip-header {
-    display: flex;
+  h2 {
+    display: inline-flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.75rem;
+    gap: 0.5rem;
+    margin: 0;
+    font-family: Lato, 'Microsoft Yahei', sans-serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: var(--heading-color);
 
-    h2 {
-      margin: 0;
-      font-family: Lato, 'Microsoft Yahei', sans-serif;
-      font-weight: 400;
-      font-size: 1.25rem;
-
-      a {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        color: var(--heading-color);
-        transition: color 0.2s;
-
-        i {
-          font-size: 1rem;
-        }
-      }
+    a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: inherit;
+      transition: color 0.2s;
     }
 
-    a:hover {
-      color: var(--link-color);
-      text-decoration: none;
+    i {
+      font-size: 1rem;
     }
   }
 
+  a:hover {
+    color: var(--link-color);
+    text-decoration: none;
+  }
+}
+
+/* divider between the Game Jams strip and the project posts */
+.home-projects-header {
+  margin-top: 1.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--main-border-color);
+  margin-bottom: 1rem;
+}
+
+/* ---------- Game Jams: home page strip ---------- */
+
+.jam-strip {
   .jam-strip-all {
     display: inline-flex;
     align-items: center;

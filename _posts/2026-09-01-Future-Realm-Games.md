@@ -1,6 +1,6 @@
 ---
 title: Neon Reverie - Lead Gameplay Programmer at Future Realm Games
-date: 2026-10-31 10:00:00 +0000
+date: 2026-09-01 10:00:00 +0000
 categories: [Projects, CPlusPlus, Unreal-Engine]
 tags: [portfolio, unreal-engine, cpp, blueprints, gameplay, leadership]
 description: Leading gameplay programming on Neon Reverie, a story-driven cyberpunk game from indie studio Future Realm Games.

@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# The image's gem directory is root-owned, but we run as `vscode`.
+# Take ownership so `bundle install` can write to it.
+sudo chown -R "$(id -u):$(id -g)" /usr/local/bundle
+bundle install
+
 if [ -f package.json ]; then
   bash -i -c "nvm install --lts && nvm install-latest-npm"
   npm i

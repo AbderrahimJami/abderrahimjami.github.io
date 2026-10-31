@@ -46,7 +46,9 @@ if $prod; then
   command="JEKYLL_ENV=production $command"
 fi
 
-if [ -e /proc/1/cgroup ] && grep -q docker /proc/1/cgroup; then
+# File change events don't reach the container from a Windows/macOS host, so poll.
+# /.dockerenv covers cgroup v2, where /proc/1/cgroup no longer mentions docker.
+if [ -e /.dockerenv ] || { [ -e /proc/1/cgroup ] && grep -q docker /proc/1/cgroup; }; then
   command="$command --force_polling"
 fi
 
